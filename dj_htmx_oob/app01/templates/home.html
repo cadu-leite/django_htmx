@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>DJ Htmx OOB</title>
+   </head>
+   <body>
+      <button
+         hx-get="{% url 'view_onload' %}"
+         hx-trigger="load, click"
+         hx-target="#id_container_load"
+         hx-swap="innerHTML">
+         Swap Content
+      </button>
+      <div id="id_container_load"></div>
+
+      <button
+         hx-get="{% url 'view_click' %}"
+         hx-trigger="click"
+         hx-target="#id_container_click"
+         hx-swap="innerHTML">
+         Swap Content
+      </button>
+      <div id="id_container_click"></div>
+
+      <button
+         hx-get="{% url 'view_click_oob' %}"
+         hx-trigger="click"
+         hx-target="#id_view_click_oob"
+         hx-swap="outerHTML">
+         Swap Content OOB
+      </button>
+      <div id="id_view_click_oob"></div>
+      <div id="id_view_click_oob_01" class="class-oob"></div>
+      <div id="id_view_click_oob_02" class="class-oob"></div>
+      <div id="id_view_click_oob_02" class="class-oob">
+         IDs duplicados não é uma boa prática / Duplicate IDs NOT good pratice
+      </div>
+
+      <button
+         hx-get="{% url 'view_click_oob' %}"
+         hx-trigger="click"
+         hx-target="#id_view_click_oob_select"
+         hx-swap="outerHTML"
+         hx-select="#sub-title">
+         Swap Content OOB SELECT
+      </button>
+      <div id="id_view_click_oob_select"></div>
+
+      <script
+         src="https://unpkg.com/htmx.org@1.9.12"
+         integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+         crossorigin="anonymous"></script>
+   </body>
+</html>
